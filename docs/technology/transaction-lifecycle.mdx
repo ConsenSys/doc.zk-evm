@@ -24,7 +24,7 @@ Transactions on Linea proceed through the following steps:
 ## Step 1: Submission
 
 This is where every transaction originates: at the wallet level, a user signs a transaction and 
-broadcasts it to Linea. From here, transactions head straight to the **mempool**, similarly to 
+broadcasts it to Linea. From here, transactions head straight to the **mempool**, similar to 
 Ethereum, where they become pending transactions.
 
 ## Step 2: Block building
@@ -71,13 +71,13 @@ Occasionally, a batch may only consist of one block, with no conflation having t
 This occurs when chain activity levels are particularly high, and the block size is larger
 than normal.
 
-Amongst Ethereum's L2 networks, Linea is the only network that uses batch conflation.
+Among Ethereum's L2 networks, Linea is the only network that uses batch conflation.
 
 ## Step 5: Generating a ZK proof using transaction data
 
 With the block that contains the transaction's trace data conflated into a batch with one or
 more others, the only remaining task on the checklist to achieve **_hard_ finality** is to use
-the transaction's data—as contained in its trace—to generate a proof.
+the transaction's data—as contained in its trace—to generate proof.
 
 When prompted by the [Coordinator](./coordinator.mdx), Linea's [prover](./prover/trace-expansion.mdx)
 will first **expand** the trace, preparing it for inclusion in the proof. Linea's prover employs
@@ -104,7 +104,7 @@ transactions, our transaction is involved in this process as well.
 Let's break down the two elements submitted to L1:
 
 - The proof, as explained [above](#step-5-generating-a-zk-proof-using-transaction-data), and;
-- Blob data, which contains L2 transaction and messaging data. Once shared to L1, blob data
+- Blob data, which contains L2 transaction and messaging data. Once shared with L1, blob data
 can be used to reconstruct Linea's state and verify the contents of the proof, before it disappears
 after 4,096 epochs (~18 days). The Linea rollup contract on L1 calls the Ethereum verifier contract
 using blob data, determining whether or not to accept the batch as valid.
